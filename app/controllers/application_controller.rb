@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def require_api_token
-    unless params[:api_token] == ENV["API_TOKEN"]
+    unless params[:api_token] == ENV["API_SECRET"]
       render json: {status: 404, message: "invalid api token"}
     end
   end
