@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'landing#index'
 
+  namespace :api do
+    resources :temperatures, only: [:create]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
