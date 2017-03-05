@@ -13,7 +13,6 @@ class Api::TemperaturesController < ApplicationController
   private
 
   def require_api_token
-    debugger
     unless params[:api_token] == ENV["API_SECRET"]
       render json: {status: 404, message: "invalid api token"}
     end
