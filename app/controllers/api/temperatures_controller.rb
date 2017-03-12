@@ -2,7 +2,7 @@ class Api::TemperaturesController < ApplicationController
   # before_action :require_api_token
 
   def create
-    temp = Temperature.new(temperature: params[:temperature])
+    temp = Temperature.new(temperature: params["temperature"])
     if temp.save
       render json: {status: 202, message: "success"}
     else
