@@ -1,5 +1,5 @@
 class Api::TemperaturesController < ApplicationController
-  before_action :require_api_token, only: [:create]
+  before_action :require_api_token
 
   def create
     temp = Temperature.new(temperature: params[:temperature])
@@ -10,10 +10,15 @@ class Api::TemperaturesController < ApplicationController
     end
   end
 
+  def index
+    temp = Temperature.last
+    render json: { status: 202, data: { temperature: temp.temperature} }
+  end
+
   private
 
   def require_api_token
-    unless params[:api_token] && params[:api_token] == ENV["API_SECRET"]
+    unless params["api_secret"] && params["api_secret"] == ENV["API_SECRET"]
       render json: {status: 404, message: "invalid api token"}
     end
   end

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root 'landing#index'
 
   namespace :api do
-    resources :temperatures, only: [:create]
+    resources :temperatures, only: [:create, :index]
+
   end
 
   # Example of regular route:
