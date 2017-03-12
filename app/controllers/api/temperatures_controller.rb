@@ -1,5 +1,5 @@
 class Api::TemperaturesController < ApplicationController
-  before_action :require_api_token
+  # before_action :require_api_token
 
   def create
     temp = Temperature.new(temperature: params[:temperature])
