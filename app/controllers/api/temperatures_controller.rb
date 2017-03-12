@@ -11,8 +11,7 @@ class Api::TemperaturesController < ApplicationController
   end
 
   def index
-    temp = Temperature.last
-    render json: { status: 202, data: { temperature: temp.temperature} }
+    render json: { status: 202, message: "success" }
   end
 
   private
