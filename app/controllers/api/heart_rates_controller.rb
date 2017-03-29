@@ -1,4 +1,4 @@
-class Api::TemperaturesController < ApplicationController
+class Api::HeartRatesController < ApplicationController
   def create
     heart_rate = HeartRate.new(rate: params["heartrate"])
     if heart_rate.save
