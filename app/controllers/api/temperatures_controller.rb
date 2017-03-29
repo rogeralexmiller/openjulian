@@ -6,7 +6,7 @@ class Api::TemperaturesController < ApplicationController
     if temp.save
       render json: {status: 202, message: "success"}
     else
-      render json: {status: 404, message: "failure"}
+      render json: {status: 404, message: temp.errors.full_messages}
     end
   end
 
