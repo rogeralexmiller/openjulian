@@ -1,12 +1,20 @@
-<h1 class="text-center text-uppercase"><strong>Open Julian</strong></h1>
-
-<h4 >Welcome to Open Julian!</h4>
-
-<p>
-  Soon, you'll be able to monitor Julian's health and vital statistics in real
-  time! But for now, we're still building. Thanks for your patience!
-</p>
-
-<div class="temp">
-
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "index.js" %>
+<% end %>
+<div class="row">
+  <h3 class="text-center text-uppercase"><strong>Welcome to Open Julian</strong></h3>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+    <p>Where you can see Julian’s biometrics in real-time
+      - and interact as well. Zap him (below) and see if his
+      bodyresponds. Don’t be too cruel about it now (pls).</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-6">
+    <div class="temp-container">
+      <canvas id="temp-canvas" width=200 height=200></canvas>
+    </div>
+  </div>
 </div>
