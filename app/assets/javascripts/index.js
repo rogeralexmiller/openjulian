@@ -24,9 +24,9 @@ $(document).ready(function () {
 
     ctx.fillStyle = 'white';
     ctx.strokeStyle = 'black';
-    ctx.fillRect(0,0, 200,200);
+    ctx.fillRect(0,0, 200,150);
     ctx.beginPath();
-    ctx.moveTo(0,200);
+    ctx.moveTo(0,150);
     ctx.save();
     var temperatures = [];
     var nextTemperatures = [];
@@ -41,6 +41,7 @@ $(document).ready(function () {
         url: 'api/temperatures',
         success: function(data){
           var nextTemp = parseInt(data.data);
+          $('#temp-readout').html(nextTemp);
 
           if (nextTemp != lastTemp) {
             var transTemp = lastTemp;
@@ -62,7 +63,7 @@ $(document).ready(function () {
 
     setInterval(function(){
       ctx.fillStyle = 'white';
-      ctx.clearRect(0,0,200,200);
+      ctx.clearRect(0,0,200,150);
 
       var nextTemp;
 
@@ -79,7 +80,7 @@ $(document).ready(function () {
       for (var i = 0; i < temperatures.length; i++) {
         var tempValue = temperatures[i];
         ctx.fillStyle = 'black';
-        ctx.strokeRect(i, 200 - tempValue, 3, 3);
+        ctx.strokeRect(i, 150 - tempValue, 3, 3);
       }
     }, 100);
   }

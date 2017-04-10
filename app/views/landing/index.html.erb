@@ -2,7 +2,9 @@
   <%= javascript_include_tag "index.js" %>
 <% end %>
 <div class="row">
-  <h3 class="text-center text-uppercase"><strong>Welcome to Open Julian</strong></h3>
+  <div class="col-md-4 col-md-offset-4">
+    <h3 class="text-center text-uppercase"><strong>Welcome to Open Julian</strong></h3>
+  </div>
 </div>
 <div class="row">
   <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
@@ -12,9 +14,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-6">
+  <div class="col-md-4">
+    <h4 class="text-center">Body Temperature</h4>
     <div class="temp-container">
-      <canvas id="temp-canvas" width=200 height=200></canvas>
+      <p id="temp-readout"></p>
+      <canvas id="temp-canvas" width=200 height=150></canvas>
     </div>
   </div>
 </div>
