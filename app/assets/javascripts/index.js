@@ -1,25 +1,6 @@
-// 1. Start at bottom left corner of canvas.
-// 2. Enter interval.
-// 3. Get latest temperature. push into array of temperatures with initial
-//    coordinate of its temp as y value and 150 as x.
-// Keep adding temperatures to array.
-// Loop through the array on each loop and draw each temperature as a
-// circle. Use the index of the temperature to determine it's x position
-// To create the illusion of a transition between temperature points,
-// create transition temperatures in 1 degree intervals between lastTemperature
-// and next temperature
-
-// one array stores the past temperatures. one array stores the next temperatures
-// Every other second, send ajax to get the latest data. If it needs a transition,
-// use a loop to feed the transition points into the nextTemps array.
-
-// Each animation frame, if there are new temperatures in the nextTemps array,
-// pop one off and push it into the pastTemps array and remove the oldest temp.
-// Now draw the temps in the pastTemps array.
 $(document).ready(function () {
   var canvas = document.getElementById('temp-canvas');
   if (canvas.getContext) {
-    console.log("got context!");
     var ctx = canvas.getContext('2d');
 
     ctx.fillStyle = 'white';
@@ -82,6 +63,6 @@ $(document).ready(function () {
         ctx.fillStyle = 'black';
         ctx.strokeRect(i, 150 - tempValue, 3, 3);
       }
-    }, 100);
+    }, 200);
   }
 });
