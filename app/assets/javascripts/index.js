@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     setInterval(function(){
       $.ajax({
-        url: 'api/temperatures',
+        url: 'openjulian.com/api/temperatures',
         success: function(data){
           var nextTemp = parseInt(data.data);
           $('#temp-readout').html(nextTemp);
