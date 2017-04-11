@@ -1,8 +1,8 @@
-class Api::TemperaturesController < ApplicationController
+class Api::GsrsController < ApplicationController
   # before_action :require_api_token
 
   def create
-    temp = Temperature.new(temperature: params['temperature'])
+    temp = Gsr.new(temperature: params['gsr'])
     if temp.save
       render json: { status: 202, message: 'success' }
     else
@@ -11,7 +11,7 @@ class Api::TemperaturesController < ApplicationController
   end
 
   def index
-    temp = Temperature.last
+    temp = Gsr.last
     render json: { status: 202, message: 'success', data: temp.temperature }
   end
 

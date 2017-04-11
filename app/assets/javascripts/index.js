@@ -21,7 +21,7 @@ $(document).ready(function () {
       $.ajax({
         url: 'api/temperatures',
         success: function(data){
-          var nextTemp = parseInt(data.data);
+          var nextTemp = parseFloat(data.data);
           $('#temp-readout').html(nextTemp);
 
           if (nextTemp != lastTemp) {
@@ -29,10 +29,10 @@ $(document).ready(function () {
 
             while(transTemp != nextTemp) {
               if(transTemp > nextTemp) {
-                transTemp = transTemp - 1;
+                transTemp = transTemp - 0.5;
               }
               if(transTemp < nextTemp) {
-                transTemp = transTemp + 1;
+                transTemp = transTemp + 0.5;
               }
               nextTemperatures.push(transTemp);
             }
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
     setInterval(function(){
       ctx.fillStyle = 'white';
-      ctx.clearRect(0,0,200,150);
+      ctx.clearRect(0, 0, 200, 150);
 
       var nextTemp;
 
