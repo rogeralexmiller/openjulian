@@ -2,17 +2,17 @@ class Api::GsrsController < ApplicationController
   # before_action :require_api_token
 
   def create
-    temp = Gsr.new(temperature: params['gsr'])
-    if temp.save
+    gsr = Gsr.new(gsr: params['gsr'])
+    if gsr.save
       render json: { status: 202, message: 'success' }
     else
-      render json: { status: 404, message: temp.errors.full_messages }
+      render json: { status: 404, message: gsr.errors.full_messages }
     end
   end
 
   def index
-    temp = Gsr.last
-    render json: { status: 202, message: 'success', data: temp.temperature }
+    gsr = Gsr.last
+    render json: { status: 202, message: 'success', data: gsr.gsr }
   end
 
   private
