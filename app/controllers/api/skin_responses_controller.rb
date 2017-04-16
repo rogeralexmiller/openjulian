@@ -1,7 +1,7 @@
 class Api::SkinResponsesController < ApplicationController
 
   def create
-    gsr = Gsr.new(gsr: params['gsr'])
+    gsr = SkinResponse.new(gsr: params['gsr'])
     if gsr.save
       render json: { status: 202, message: 'success' }
     else
@@ -10,7 +10,7 @@ class Api::SkinResponsesController < ApplicationController
   end
 
   def index
-    gsr = Gsr.last
+    gsr = SkinResponse.last
     render json: { status: 202, message: 'success', data: gsr.gsr }
   end
 end
