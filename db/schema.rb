@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411024241) do
+ActiveRecord::Schema.define(version: 20170416082605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "gsrs", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "gsr",        null: false
-  end
 
   create_table "heart_rates", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "heart_rate", null: false
+  end
+
+  create_table "skin_responses", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "gsr",        null: false
   end
 
   create_table "temperatures", force: :cascade do |t|

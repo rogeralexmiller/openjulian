@@ -1,5 +1,4 @@
-class Api::GsrsController < ApplicationController
-  # before_action :require_api_token
+class Api::SkinResponsesController < ApplicationController
 
   def create
     gsr = Gsr.new(gsr: params['gsr'])
@@ -13,13 +12,5 @@ class Api::GsrsController < ApplicationController
   def index
     gsr = Gsr.last
     render json: { status: 202, message: 'success', data: gsr.gsr }
-  end
-
-  private
-
-  def require_api_token
-    unless params['api_secret'] && params['api_secret'] == ENV['API_SECRET']
-      render json: { status: 404, message: 'invalid api token' }
-    end
   end
 end
