@@ -1,5 +1,4 @@
 class Api::SkinResponsesController < ApplicationController
-
   def create
     gsr = SkinResponse.new(gsr: params['gsr'])
     if gsr.save
@@ -11,6 +10,10 @@ class Api::SkinResponsesController < ApplicationController
 
   def index
     gsr = SkinResponse.last
-    render json: { status: 202, message: 'success', data: gsr.gsr }
+    if gsr
+      render json: { status: 202, message: 'success', data: gsr.gsr }
+    else
+      render json: { status: 404, message: 'Not found' }
+    end
   end
 end
