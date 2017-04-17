@@ -76,4 +76,15 @@ $(document).ready(function () {
       }
     });
   }, 1000);
+
+  setInterval(function(){
+    $.ajax({
+      url: 'api/skin_responses',
+      success: function(data){
+        var skinResponse =  data.data;
+        var skinContainer = $(".skin-response-container");
+        skinContainer.html(skinResponse);
+      }
+    });
+  }, 1000);
 });
