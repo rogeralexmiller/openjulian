@@ -65,4 +65,15 @@ $(document).ready(function () {
       }
     }, 200);
   }
+
+  setInterval(function(){
+    $.ajax({
+      url: 'api/heart_rates',
+      success: function(data){
+        var heartRate =  data.data;
+        var heartContainer = $(".heart-rate-container");
+        heartContainer.html(heartRate);
+      }
+    });
+  }, 1000);
 });
