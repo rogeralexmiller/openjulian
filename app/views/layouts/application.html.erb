@@ -22,9 +22,41 @@
     <%= stylesheet_link_tag "application.css" %>
 
   </head>
+
   <body>
-    <div class="container-fluid">
+    <div id="main" class="container clear-top">
       <%= yield %>
     </div>
   </body>
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h1 class="text-uppercase company-title">BIO I/O</h1>
+          <span class="text-uppercase">Your Gateway to the Biometric Marketplace</span>
+        </div>
+
+        <div class="col-md-4">
+          <div class="stat-footer">
+            <p>
+              <span class="text-uppercase">YOU HAVE BEEN COLLECTING FOR:</span> 8 months
+            </p>
+
+            <p>
+              <span class="text-uppercase">YOU HAVE MADE:</span> $1200
+            </p>
+
+            <p>
+              <span class="text-uppercase">YOU HAVE DONATED:</span>  104 hours of data
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <h2 class="text-uppercase"> find opportunities</h2>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>

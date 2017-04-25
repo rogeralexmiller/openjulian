@@ -13,7 +13,95 @@
  *= require_tree .
  *= require_self
  */
+html, body {
+  height: 100%;
+}
+
 body {
-  background-color: #77BBF5;
-  color: #FFFFFF;
+  margin: 0;
+  background-image: url("CroppedBackGround.png");
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+}
+h1, h2, h3, h4, h5 {
+
+}
+
+#main {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -155px; /* the bois needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear: both;
+  padding-top:20px;
+}
+
+td.bio-icon {
+  margin: 0 auto;
+  width: 45px;
+  padding: 0;
+}
+
+.temperature-image {
+  width: 15px;
+}
+
+.brain-image {
+  width: 45px;
+}
+
+.julian-title {
+  font-size: 63px;
+  font-family: "Abadi MT Condensed Extra Bold"
+}
+.big-title {
+  font-size: 93px;
+}
+
+.sub-header {
+  padding-top: 35px;
+  font-weight: bold;
+}
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
+
+.table-padless > tbody > tr > td,
+.table-padless > tbody > tr > th,
+.table-padless > tfoot > tr > td,
+.table-padless > tfoot > tr > th,
+.table-padless > thead > tr > td,
+.table-padless > thead > tr > th {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+h1.company-title {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.stat-footer {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.stat-footer p {
+  margin-bottom: 0;
+}
+
+.julian-stats {
+  padding-left: 10px;
 }

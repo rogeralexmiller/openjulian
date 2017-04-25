@@ -1,34 +1,104 @@
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "index.js" %>
 <% end %>
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <h3 class="text-center text-uppercase"><strong>Welcome to Open Julian</strong></h3>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
-    <p>Where you can see Julian’s biometrics in real-time
-      - and interact as well. Zap him (below) and see if his
-      bodyresponds. Don’t be too cruel about it now (pls).</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <h4 class="text-center">Body Temperature</h4>
-    <div class="temp-container">
-      <p id="temp-readout"></p>
-      <canvas id="temp-canvas" width=200 height=150></canvas>
+  <div class="navbar">
+    <div class="row">
+      <div class="col-md-7">
+        <h3 class="julian-title" class="text-uppercase">
+          <strong>
+            Welcome to <span class="big-title">Open[Julian].com</span>
+          </strong>
+        </h3>
+      </div>
+      <div class="col-md-5">
+        <p class="sub-header">
+          SEE YOUR BIOMETRICS IN REAL-TIME AND
+          PUT THEM TO USE FOR YOUR SELF AND OTHERS
+        </p>
+      </div>
     </div>
   </div>
-  <div class="col-md-4">
-    <h4> Heart Rate</h4>
-    <div class="heart-rate-container">
-    </div>
-  </div>
-  <div class="col-md-4">
-    <h4> Galvanic Skin Response (Sweatiness)</h4>
-    <div class="skin-response-container">
-    </div>
-  </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h5 class="text-uppercase">JULIAN GOLDMAN STATISTICALLY:</h5>
+      <div class="julian-stats">
+        <p class="text-left">
+          Caucasian Male - Ashkenazi Jewish
+          31 years old -
+        </p>
+        <h5 class="text-uppercase">Genetic predispositions:</h4>
+          <div class="julian-stats">
+            <table class="table table-borderless table-padless">
+              <tr>
+                <td> High blood pressure </td>
+                <td class="text-right"> $ </td>
+              </tr>
+              <tr>
+                <td> High cholesterol </td>
+                <td class="text-right">$ </td>
+              </tr>
+              <tr>
+                <td> Melanoma </td>
+                <td class="text-right"> $ </td>
+              </tr>
+              <tr>
+                <td> Colorectal Polyps </td>
+                <td class="text-right"> $$ </td>
+              </tr>
+              <tr>
+                <td> Late-onset Alzheimers </td>
+                <td class="text-right"> $$ </td>
+              </tr>
+              <tr>
+                <td> Psychiatric Depression </td>
+                <td class="text-right"> $$$ </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-md-offset-1">
+        <h5 class="text-uppercase">real-time feedback:</h4>
+          <table class="table table-borderless">
+            <tr>
+              <td class='bio-icon'>
+                <%= image_tag('heart.png', class: 'img-responsive') %>
+              </td>
+              <td class="heart-rate-container">
+                value
+              </td>
+            </tr>
+            <tr>
+              <td class='bio-icon'>
+                <%= image_tag('brain.png', class: 'img-responsive brain-image') %>
+              </td>
+              <td>
+                value
+              </td>
+            </tr>
+            <tr>
+              <td class='bio-icon'>
+                <%= image_tag('sweat.png', class: 'img-responsive') %>
+              </td>
+              <td class="skin-response-container">
+                value
+              </td>
+            </tr>
+            <tr>
+              <td class='bio-icon'>
+                <%= image_tag('temperature.png', class: 'img-responsive temperature-image') %>
+              </td>
+              <td id="temp-readout">
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <div class="temp-container">
+            <canvas id="temp-canvas" width=200 height=150></canvas>
+          </div>
+        </div>
+      </div>
