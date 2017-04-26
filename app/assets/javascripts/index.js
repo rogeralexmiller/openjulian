@@ -6,7 +6,6 @@ $(document).ready(function () {
     ctx.fillStyle = 'white';
     ctx.strokeStyle = 'black';
     ctx.fillRect(0,0, 350,200);
-    ctx.moveTo(5,200);
     ctx.beginPath();
     ctx.save();
 
@@ -35,7 +34,7 @@ $(document).ready(function () {
           var nextTemp = parseFloat(data.data);
 
           if (nextTemp != lastTemp) {
-            $('#temp-readout').html(nextTemp);
+            $('#temp-readout').html(nextTemp).width(20);
             var transTemp = lastTemp;
 
             while(transTemp != nextTemp) {
@@ -95,14 +94,14 @@ $(document).ready(function () {
         var rateValue = heartRates[i];
         var gsrValue = gsrs[i];
 
-        ctx.fillStyle = '#f46666';
+        ctx.fillStyle = '#f79420';
         ctx.globalAlpha = 1.0 - (i/350.0);
         ctx.fillRect(i+10, 200 - tempValue - 5, 3, 3);
 
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = '#e55036';
         ctx.fillRect(i+10, 200 - rateValue - 5, 3, 3);
 
-        ctx.fillStyle = 'green';
+        ctx.fillStyle = '#9ce0a6';
         ctx.fillRect(i+10, 200 - gsrValue - 5, 3, 3);
 
       }
@@ -117,7 +116,7 @@ $(document).ready(function () {
 
         if (nextRate != lastRate) {
           var heartContainer = $(".heart-rate-container");
-          heartContainer.html(nextRate);
+          heartContainer.html(nextRate).width(20);
 
           var transRate = lastRate;
 
@@ -144,7 +143,7 @@ $(document).ready(function () {
 
         if (nextGsr != lastGsr) {
           var skinContainer = $(".skin-response-container");
-          skinContainer.html(nextGsr);
+          skinContainer.html(nextGsr).width(20);
 
           var transGsr = lastGsr;
 

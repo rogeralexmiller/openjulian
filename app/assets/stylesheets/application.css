@@ -16,6 +16,8 @@
 html, body {
   height: 100%;
   color: #70b7f2;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 body {
@@ -25,8 +27,9 @@ body {
   height: 100%;
   background-repeat: no-repeat;
 }
-h1, h2, h3, h4, h5 {
 
+img {
+  margin: 0 auto;
 }
 
 #main {
@@ -34,6 +37,10 @@ h1, h2, h3, h4, h5 {
   height: auto !important;
   height: 100%;
   margin: 0 auto -155px; /* the bois needs to be bigger than footer height*/
+}
+
+.navbar {
+  margin-bottom: 50px;
 }
 
 .footer {
@@ -46,7 +53,7 @@ h1, h2, h3, h4, h5 {
 
 td.bio-icon {
   margin: 0 auto;
-  width: 45px;
+  width: 55px;
   padding: 0;
 }
 
@@ -59,18 +66,19 @@ td.bio-icon {
 }
 
 .julian-title {
-  font-size: 25px;
+  font-size: 30px;
   font-family: arial;
   text-transform: uppercase;
-  letter-spacing: 100;
+  letter-spacing: 0px;
 }
 .big-title {
-  font-size: 35px;
+  font-size: 44px;
 }
 
 .sub-header {
-  padding-top: 20px;
-  font-weight: bold;
+  font-size:19px;
+  padding-top: 23px;
+  line-height:20px;
 }
 .table-borderless > tbody > tr > td,
 .table-borderless > tbody > tr > th,
@@ -100,14 +108,11 @@ h1.company-title {
 .stat-footer {
   margin-top: 20px;
   margin-bottom: 10px;
+  margin-left: 12px;
 }
 
 .stat-footer p {
   margin-bottom: 0;
-}
-
-.julian-stats {
-  padding-left: 10px;
 }
 
 .logo-wrap {
@@ -117,4 +122,31 @@ h1.company-title {
 
 .grey-text {
   color: #3a3939;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0.79;
+}
+
+.circle:after {
+  content: " ";
+}
+
+.temp-circle {
+  background-color: #f79420;
+}
+
+.heart-circle {
+  background-color: #e55036;
+}
+
+.gsr-circle {
+  background-color: #9ce0a6;
+}
+
+.data-cell {
+  width: 20px;
 }
