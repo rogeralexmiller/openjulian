@@ -7,7 +7,7 @@ $(document).ready(function () {
     ctx.strokeStyle = 'black';
     ctx.fillRect(0,0, 200,150);
     ctx.beginPath();
-    ctx.moveTo(0,150);
+    ctx.moveTo(5,150);
     ctx.save();
     var temperatures = [];
     var nextTemperatures = [];
@@ -22,9 +22,9 @@ $(document).ready(function () {
         url: 'api/temperatures',
         success: function(data){
           var nextTemp = parseFloat(data.data);
-          $('#temp-readout').html(nextTemp);
 
           if (nextTemp != lastTemp) {
+            $('#temp-readout').html(nextTemp);
             var transTemp = lastTemp;
 
             while(transTemp != nextTemp) {
@@ -52,16 +52,17 @@ $(document).ready(function () {
         nextTemp = nextTemperatures[0];
         nextTemperatures = nextTemperatures.slice(1, nextTemperatures.length);
       } else {
-        nextTemp = temperatures[temperatures.length -1];
+        nextTemp = temperatures[0];
       }
 
-      temperatures.push(nextTemp);
-      temperatures = temperatures.slice(1, temperatures.length);
+      temperatures.unshift(nextTemp);
+      temperatures.pop();
 
       for (var i = 0; i < temperatures.length; i++) {
         var tempValue = temperatures[i];
-        ctx.fillStyle = 'black';
-        ctx.strokeRect(i, 150 - tempValue, 3, 3);
+        ctx.fillStyle = '#f46666';
+        ctx.globalAlpha = 1.0 - (i/150.0);
+        ctx.fillRect(i+10, 150 - tempValue - 5, 3, 3);
       }
     }, 200);
   }
