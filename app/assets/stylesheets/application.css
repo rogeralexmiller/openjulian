@@ -59,15 +59,15 @@ td.bio-icon {
 }
 
 .julian-title {
-  font-size: 63px;
+  font-size: 35px;
   font-family: "Abadi MT Condensed Extra Bold"
 }
 .big-title {
-  font-size: 93px;
+  font-size: 40px;
 }
 
 .sub-header {
-  padding-top: 35px;
+  padding-top: 20px;
   font-weight: bold;
 }
 .table-borderless > tbody > tr > td,
@@ -77,6 +77,7 @@ td.bio-icon {
 .table-borderless > thead > tr > td,
 .table-borderless > thead > tr > th {
     border: none;
+    color: #3a3939;
 }
 
 .table-padless > tbody > tr > td,
@@ -105,4 +106,13 @@ h1.company-title {
 
 .julian-stats {
   padding-left: 10px;
+}
+
+.logo-wrap {
+  width: 350px;
+  height: auto;
+}
+
+.grey-text {
+  color: #3a3939;
 }
