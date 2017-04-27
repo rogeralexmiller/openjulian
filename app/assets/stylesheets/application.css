@@ -13,24 +13,39 @@
  *= require_tree .
  *= require_self
  */
+html {
+  background-image: url("CroppedBackGround.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+}
 html, body {
   color: #70b7f2;
   font-weight: 500;
   font-size: 16px;
+  margin 0;
+  height: 100%;
 }
 
 body {
-  height: 100% !important;
   padding-bottom: 30px;
+  background: none;
+  height: 100% !important;
+  margin-bottom: 60px
 }
 
 #wrapper {
-  background-image: url("CroppedBackGround.png");
-  background-repeat: no-repeat;
+  height: 100%;
+  overflow: auto;
 }
 
 footer {
   padding-top: 20px;
+  position: absolute;
+  width: 100%;
 }
 
 img {
