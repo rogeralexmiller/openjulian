@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     ctx.fillStyle = 'white';
     ctx.strokeStyle = 'black';
-    ctx.fillRect(0,0, 350,200);
+    ctx.fillRect(0,0, 300,200);
     ctx.beginPath();
     ctx.save();
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
     var nextGsrs = [];
     var lastGsr = 10;
 
-    for (var i = 0; i < 350; i++) {
+    for (var i = 0; i < 300; i++) {
       gsrs.push(10);
       temperatures.push(20);
       heartRates.push(30);
@@ -53,7 +53,7 @@ $(document).ready(function () {
     }, 1000);
 
     setInterval(function(){
-      ctx.clearRect(0, 0, 350, 200);
+      ctx.clearRect(0, 0, 300, 200);
 
       var nextTemp;
       var nextRate;
@@ -89,13 +89,13 @@ $(document).ready(function () {
       gsrs.unshift(nextGsr);
       gsrs.pop();
 
-      for (var i = 0; i < 350; i++) {
+      for (var i = 0; i < 300; i++) {
         var tempValue = temperatures[i];
         var rateValue = heartRates[i];
         var gsrValue = gsrs[i];
 
         ctx.fillStyle = '#f79420';
-        ctx.globalAlpha = 1.0 - (i/350.0);
+        ctx.globalAlpha = 1.0 - (i/300.0);
         ctx.fillRect(i+10, 200 - tempValue - 5, 3, 3);
 
         ctx.fillStyle = '#e55036';

@@ -24,40 +24,39 @@
   </head>
 
   <body>
-    <div id="main" class="container clear-top">
+    <div id="wrapper" class="container-fluid">
       <%= yield %>
     </div>
   </body>
 
-  <footer class="footer container">
-      <div class="row">
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row-fluid">
         <div class="col-md-4">
           <div class="logo-wrap">
             <%= image_tag('bio-io.png', class:'img-responsive') %>
           </div>
         </div>
-
         <div class="col-md-4">
           <div class="stat-footer">
             <p>
-              <span class="text-uppercase">YOU HAVE BEEN COLLECTING FOR:</span> <span class="grey-text">8 months</span>
+              <span class="text-uppercase center-justified">YOU HAVE BEEN COLLECTING FOR:</span> <span class="grey-text">8 months</span>
             </p>
-
             <p>
-              <span class="text-uppercase">YOU HAVE MADE:</span> <span class="grey-text">$1200</span>
+              <span class="text-uppercase center-justified">YOU HAVE MADE:</span> <span class="grey-text">$1200</span>
             </p>
-
             <p>
-              <span class="text-uppercase">YOU HAVE DONATED:</span> <span class="grey-text"> 104 hours of data</span>
+              <span class="text-uppercase center-justified">YOU HAVE DONATED:</span> <span class="grey-text"> 104 hours of data</span>
             </p>
           </div>
         </div>
-
         <div class="col-md-4">
           <div class="logo-wrap">
             <%= image_tag('logo-button', class: 'img-responsive') %>
           </div>
         </div>
       </div>
+    </div>
   </footer>
+
 </html>

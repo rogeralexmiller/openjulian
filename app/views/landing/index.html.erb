@@ -1,114 +1,114 @@
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "index.js" %>
 <% end %>
-  <div class="navbar">
-    <div class="row">
-      <div class="col-md-7">
-        <h3 class="julian-title" class="text-uppercase">
-          <strong>
-            Welcome to <span class="big-title">Open[Julian].com</span>
-          </strong>
-        </h3>
-      </div>
-      <div class="col-md-5">
-        <p class="sub-header grey-text">
-          SEE YOUR BIOMETRICS IN REAL-TIME AND
-          PUT THEM TO USE FOR YOUR SELF AND OTHERS
-        </p>
-      </div>
-    </div>
+<div class="navbar">
+<div class="row-fluid">
+<div class="col col-sm-7">
+  <h3 class="julian-title" class="text-uppercase">
+    <strong>
+      Welcome to <span class="big-title">Open[Julian].com</span>
+    </strong>
+  </h3>
+</div>
+<div class="col col-sm-5">
+  <p class="sub-header grey-text">
+    SEE YOUR BIOMETRICS IN REAL-TIME AND
+    PUT THEM TO USE FOR YOUR SELF AND OTHERS
+  </p>
+</div>
+</div>
+</div>
+
+<div class="row-fluid">
+<div class="col col-sm-4">
+<div class="temp-container">
+  <canvas id="temp-canvas" width=300 height=200></canvas>
+</div>
+</div>
+
+<div class="col col-sm-4">
+  <h5 class="text-uppercase sub-header">real-time feedback:</h4>
+    <table class="table table-borderless">
+      <tr>
+        <td class='bio-icon'>
+          <%= image_tag('heart.png', class: 'img-responsive') %>
+        </td>
+        <td class="heart-rate-container data-cell">
+          0
+        </td>
+        <td>
+          <div class="circle heart-circle"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class='bio-icon'>
+          <%= image_tag('brain.png', class: 'img-responsive brain-image') %>
+        </td>
+        <td class='data-cell'>
+          20
+        </td>
+      </tr>
+      <tr>
+        <td class='bio-icon'>
+          <%= image_tag('sweat.png', class: 'img-responsive') %>
+        </td>
+        <td class="skin-response-container data-cell">
+          0
+        </td>
+        <td>
+          <div class="circle gsr-circle"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class='bio-icon'>
+          <%= image_tag('temperature.png', class: 'img-responsive temperature-image') %>
+        </td>
+        <td id="temp-readout">
+          0
+        </td>
+        <td>
+          <div class="circle temp-circle"><div>
+        </td>
+      </tr>
+    </table>
   </div>
 
-  <div class="row">
-    <div class="col-md-4">
-      <div class="temp-container">
-        <canvas id="temp-canvas" width=350 height=200></canvas>
+  <div class="col col-sm-4">
+    <h5 class="text-uppercase sub-header">JULIAN GOLDMAN STATISTICALLY:</h5>
+    <div class="julian-stats">
+      <p class="text-left grey-text">
+        Caucasian Male - Ashkenazi Jewish 31 years old
+      </p>
+      <h5 class="text-uppercase sub-header">Genetic predispositions:</h4>
+      <div class="julian-stats">
+        <table class="table table-borderless table-padless">
+          <tr>
+            <td> High blood pressure </td>
+            <td class="text-right"> $ </td>
+          </tr>
+          <tr>
+            <td> High cholesterol </td>
+            <td class="text-right">$ </td>
+          </tr>
+          <tr>
+            <td> Melanoma </td>
+            <td class="text-right"> $ </td>
+          </tr>
+          <tr>
+            <td> Colorectal Polyps </td>
+            <td class="text-right"> $$ </td>
+          </tr>
+          <tr>
+            <td> Late-onset Alzheimers </td>
+            <td class="text-right"> $$ </td>
+          </tr>
+          <tr>
+            <td> Psychiatric Depression </td>
+            <td class="text-right"> $$$ </td>
+          </tr>
+        </table>
+      </div>
       </div>
     </div>
-
-      <div class="col-md-4">
-        <h5 class="text-uppercase sub-header">real-time feedback:</h4>
-          <table class="table table-borderless">
-            <tr>
-              <td class='bio-icon'>
-                <%= image_tag('heart.png', class: 'img-responsive') %>
-              </td>
-              <td class="heart-rate-container data-cell">
-                0
-              </td>
-              <td>
-                <div class="circle heart-circle"></div>
-              </td>
-            </tr>
-            <tr>
-              <td class='bio-icon'>
-                <%= image_tag('brain.png', class: 'img-responsive brain-image') %>
-              </td>
-              <td class='data-cell'>
-                20
-              </td>
-            </tr>
-            <tr>
-              <td class='bio-icon'>
-                <%= image_tag('sweat.png', class: 'img-responsive') %>
-              </td>
-              <td class="skin-response-container data-cell">
-                0
-              </td>
-              <td>
-                <div class="circle gsr-circle"></div>
-              </td>
-            </tr>
-
-            <tr>
-              <td class='bio-icon'>
-                <%= image_tag('temperature.png', class: 'img-responsive temperature-image') %>
-              </td>
-              <td id="temp-readout">
-                0
-              </td>
-              <td>
-                <div class="circle temp-circle"><div>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="col-md-4">
-          <h5 class="text-uppercase sub-header">JULIAN GOLDMAN STATISTICALLY:</h5>
-          <div class="julian-stats">
-            <p class="text-left grey-text">
-              Caucasian Male - Ashkenazi Jewish 31 years old
-            </p>
-            <h5 class="text-uppercase sub-header">Genetic predispositions:</h4>
-            <div class="julian-stats">
-              <table class="table table-borderless table-padless">
-                <tr>
-                  <td> High blood pressure </td>
-                  <td class="text-right"> $ </td>
-                </tr>
-                <tr>
-                  <td> High cholesterol </td>
-                  <td class="text-right">$ </td>
-                </tr>
-                <tr>
-                  <td> Melanoma </td>
-                  <td class="text-right"> $ </td>
-                </tr>
-                <tr>
-                  <td> Colorectal Polyps </td>
-                  <td class="text-right"> $$ </td>
-                </tr>
-                <tr>
-                  <td> Late-onset Alzheimers </td>
-                  <td class="text-right"> $$ </td>
-                </tr>
-                <tr>
-                  <td> Psychiatric Depression </td>
-                  <td class="text-right"> $$$ </td>
-                </tr>
-              </table>
-            </div>
-            </div>
-          </div>
-      </div>
+</div>
