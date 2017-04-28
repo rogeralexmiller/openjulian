@@ -30,7 +30,7 @@ body {
 }
 
 footer {
-  padding-top: 20px;
+  padding: 20px;
 }
 
 img {
@@ -56,14 +56,14 @@ td.bio-icon {
 }
 
 .julian-title {
-  font-size: 30px;
+  font-size: 40px;
   font-family: arial;
   text-transform: uppercase;
   font-weight: bold;
 }
 
 .big-title {
-  font-size: 44px;
+  font-size: 60px;
 }
 
 .sub-header {
@@ -96,11 +96,6 @@ h1.company-title {
   font-weight: bold;
 }
 
-.stat-footer {
-  display: inline-block;
-  margin: 20px auto;
-}
-
 .stat-footer p {
   margin-bottom: 0;
 }
@@ -108,6 +103,7 @@ h1.company-title {
 .logo-wrap {
   width: auto;
   height: auto;
+  margin: 10px;
 }
 
 .grey-text {
