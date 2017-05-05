@@ -1,5 +1,15 @@
 $(document).ready(function () {
+  var testData = false;
+
   var canvas = document.getElementById('temp-canvas');
+
+  // var testButton = $('#test-btn');
+
+  // testButton.click(function(e){
+  //   e.preventDefault();
+  //   testData = !testData;
+  // });
+
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
 
@@ -26,31 +36,6 @@ $(document).ready(function () {
       temperatures.push(20);
       heartRates.push(30);
     }
-
-    setInterval(function(){
-      $.ajax({
-        url: 'api/temperatures',
-        success: function(data){
-          var nextTemp = parseFloat(data.data);
-
-          if (nextTemp != lastTemp) {
-            $('#temp-readout').html(nextTemp).width(20);
-            var transTemp = lastTemp;
-
-            while(transTemp != nextTemp) {
-              if(transTemp > nextTemp) {
-                transTemp = transTemp - 0.5;
-              }
-              if(transTemp < nextTemp) {
-                transTemp = transTemp + 0.5;
-              }
-              nextTemperatures.push(transTemp);
-            }
-          }
-          lastTemp = nextTemp;
-        }
-      });
-    }, 1000);
 
     setInterval(function(){
       ctx.clearRect(0, 0, 300, 200);
@@ -96,17 +81,37 @@ $(document).ready(function () {
 
         ctx.fillStyle = '#f79420';
         ctx.globalAlpha = 1.0 - (i/300.0);
-        ctx.fillRect(i+10, 200 - tempValue - 5, 3, 3);
+        ctx.fillRect(i+10, 200 - tempValue - 5, 2, 2);
 
         ctx.fillStyle = '#e55036';
-        ctx.fillRect(i+10, 200 - rateValue - 5, 3, 3);
+        ctx.fillRect(i+10, 200 - rateValue - 5, 2, 2);
 
         ctx.fillStyle = '#9ce0a6';
-        ctx.fillRect(i+10, 200 - gsrValue - 5, 3, 3);
+        ctx.fillRect(i+10, 200 - gsrValue - 5, 2, 2);
 
       }
-    }, 100);
+    }, 50);
   }
+
+  setInterval(function(){
+    var nextTemp = 0;
+    if (testData) {
+      // nextTemp = parseInt(Math.random()*100);
+      // processTransition(nextTemp, lastTemp, nextTemperatures, "#temp-readout");
+      // nextTemperatures.push(nextTemp);
+      // lastTemp = nextTemp;
+    } else {
+      $.ajax({
+        url: 'api/temperatures',
+        success: function(data){
+          nextTemp = parseFloat(data.data);
+
+          processTransition(nextTemp, lastTemp, nextTemperatures, "#temp-readout");
+          lastTemp = nextTemp;
+        }
+      });
+    }
+  }, 1000);
 
   setInterval(function(){
     $.ajax({
@@ -114,22 +119,7 @@ $(document).ready(function () {
       success: function(data){
         var nextRate =  parseFloat(data.data);
 
-        if (nextRate != lastRate) {
-          var heartContainer = $(".heart-rate-container");
-          heartContainer.html(nextRate).width(20);
-
-          var transRate = lastRate;
-
-          while(transRate != nextRate) {
-            if(transRate > nextRate) {
-              transRate = transRate - 0.5;
-            }
-            if(transRate < nextRate) {
-              transRate = transRate + 0.5;
-            }
-            nextRates.push(transRate);
-          }
-        }
+        processTransition(nextRate, lastRate, nextRates, ".heart-rate-container");
         lastRate = nextRate;
       }
     });
@@ -141,24 +131,26 @@ $(document).ready(function () {
       success: function(data){
         var nextGsr = parseFloat(data.data);
 
-        if (nextGsr != lastGsr) {
-          var skinContainer = $(".skin-response-container");
-          skinContainer.html(nextGsr).width(20);
-
-          var transGsr = lastGsr;
-
-          while(transGsr != nextGsr) {
-            if(transGsr > nextGsr) {
-              transGsr = transGsr - 0.5;
-            }
-            if(transGsr < nextGsr) {
-              transGsr = transGsr + 0.5;
-            }
-            nextGsrs.push(transGsr);
-          }
-        }
+        processTransition(nextGsr, lastGsr, nextGsrs, ".skin-response-container");
         lastGsr = nextGsr;
       }
     });
   }, 1000);
+
+  function processTransition(nextValue, lastValue, nextValueArray, readoutElement) {
+    if (nextValue != lastValue) {
+      $(readoutElement).html(nextValue).width(20);
+      var transValue = lastValue;
+
+      while (transValue != nextValue) {
+        if(transValue > nextValue) {
+          transValue = transValue - 0.5;
+        }
+        if(transValue < nextValue) {
+          transValue = transValue + 0.5;
+        }
+        nextValueArray.push(transValue);
+      }
+    }
+  }
 });

@@ -70,28 +70,15 @@ td.bio-icon {
   font-weight: bold;
 }
 
-.table-borderless > tbody > tr > td,
-.table-borderless > tbody > tr > th,
-.table-borderless > tfoot > tr > td,
-.table-borderless > tfoot > tr > th,
-.table-borderless > thead > tr > td,
-.table-borderless > thead > tr > th {
+.feedback-header {
+  font-size: 20px;
+}
+
+.feedback-table > tbody > tr > td {
     border: none;
     color: #3a3939;
-}
-
-.table-padless > tbody > tr > td,
-.table-padless > tbody > tr > th,
-.table-padless > tfoot > tr > td,
-.table-padless > tfoot > tr > th,
-.table-padless > thead > tr > td,
-.table-padless > thead > tr > th {
-    padding-bottom: 0;
-    padding-top: 0;
-}
-
-.feedback-table tr {
-  min-height: 90px;
+    padding: 10px;
+    min-height: 90px;
 }
 
 .logo-wrap {
