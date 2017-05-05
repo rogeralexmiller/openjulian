@@ -3,13 +3,13 @@
 <% end %>
 
 <div class="row header">
-  <div class="col-sm-8">
+  <div class="col-sm-9">
     <div class="logo-wrap">
       <%= image_tag('bio-io.png', class:'img-responsive') %>
     </div>
   </div>
-  <div class="col-sm-4">
-    <p class="text-uppercase text-justify col-md-pull-right col-sm-pull-left">
+  <div class="col-sm-3">
+    <p class="authors text-uppercase text-align-sm text-align-md">
       Design by Julian Goldman <br>
       Built by Roger Miller
     </p>
@@ -28,7 +28,7 @@
 
 <div class="col-sm-3 col-sm-offset-1">
   <h5 class="text-uppercase feedback-header">real-time feedback:</h4>
-    <table class="table table-borderless">
+    <table class="table table-borderless feedback-table">
       <tr>
         <td class='bio-icon'>
           <%= image_tag('heart.png', class: 'img-responsive') %>
@@ -36,7 +36,7 @@
         <td class="heart-rate-container data-cell grey-text">
           0
         </td>
-        <td>
+        <td class="data-cell">
           <div class="circle heart-circle"></div>
         </td>
       </tr>
@@ -47,19 +47,19 @@
         <td class="skin-response-container data-cell grey-text">
           0
         </td>
-        <td>
+        <td class="data-cell">
           <div class="circle gsr-circle"></div>
         </td>
       </tr>
 
       <tr>
         <td class='bio-icon'>
-          <%= image_tag('temperature.png', class: 'img-responsive temperature-image') %>
+          <%= image_tag('temperature.png', class: 'img-responsive') %>
         </td>
         <td id="temp-readout" class="data-cell grey-text">
           0
         </td>
-        <td>
+        <td class="data-cell">
           <div class="circle temp-circle">
           </div>
         </td>
