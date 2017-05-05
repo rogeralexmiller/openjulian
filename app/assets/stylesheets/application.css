@@ -24,6 +24,7 @@ body {
   background-image: url("CroppedBackGround.png");
   background-repeat: no-repeat;
   background-size: cover;
+  margin-top: 20px;
 }
 
 #wrapper {
@@ -101,9 +102,8 @@ h1.company-title {
 }
 
 .logo-wrap {
-  width: auto;
+  width: 300px;
   height: auto;
-  margin: 10px;
 }
 
 .grey-text {

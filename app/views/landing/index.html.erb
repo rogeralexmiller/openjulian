@@ -1,28 +1,27 @@
 <% content_for :javascript_includes do %>
   <%= javascript_include_tag "index.js" %>
 <% end %>
-<div class="navbar">
-<div class="row-fluid">
-<div class="col col-sm-7">
-  <h3 class="julian-title" class="text-uppercase">
-    Welcome to <span class="big-title">Open[Julian]</span>
-  </h3>
-</div>
-<div class="col col-sm-5">
-  <p class="sub-header grey-text">
-    SEE YOUR BIOMETRICS IN REAL-TIME AND
-    PUT THEM TO USE FOR YOUR SELF AND OTHERS
-  </p>
-</div>
-</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="logo-wrap">
+      <%= image_tag('bio-io.png', class:'img-responsive') %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <p class="text-uppercase text-justify col-md-pull-right col-sm-pull-left">
+      Design by Julian Goldman <br>
+      Built by Roger Miller
+    </p>
+  </div>
 </div>
 
 <div class="row-fluid">
-<div class="col col-sm-4">
-<div class="temp-container">
-  <canvas id="temp-canvas" width=300 height=200></canvas>
-</div>
-</div>
+  <div class="col col-sm-4">
+    <div class="temp-container">
+      <canvas id="temp-canvas" width=300 height=200></canvas>
+    </div>
+  </div>
 
 <div class="col col-sm-4">
   <h5 class="text-uppercase sub-header">real-time feedback:</h4>
