@@ -2,7 +2,7 @@
   <%= javascript_include_tag "index.js" %>
 <% end %>
 
-<div class="row">
+<div class="row header">
   <div class="col-sm-8">
     <div class="logo-wrap">
       <%= image_tag('bio-io.png', class:'img-responsive') %>
@@ -23,10 +23,11 @@
       touch your fingers to the sensor pads below and upload your biometric
       data to the public internet
     </p>
+    <span class="glyphicon glyphicon-arrow-down arrow grey-text"></span>
   </div>
 
-<div class="col-sm-4">
-  <h5 class="text-uppercase sub-header">real-time feedback:</h4>
+<div class="col-sm-3 col-sm-offset-1">
+  <h5 class="text-uppercase feedback-header">real-time feedback:</h4>
     <table class="table table-borderless">
       <tr>
         <td class='bio-icon'>

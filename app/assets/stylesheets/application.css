@@ -32,6 +32,10 @@ body {
   padding-top: 10px;
 }
 
+.header {
+  margin-bottom: 60px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -73,9 +77,9 @@ td.bio-icon {
 }
 
 .sub-header {
-  font-size:19px;
-  padding-top: 23px;
-  line-height:20px;
+  font-size: 30px;
+  line-height: 20px;
+  font-weight: bold;
 }
 .table-borderless > tbody > tr > td,
 .table-borderless > tbody > tr > th,
@@ -137,4 +141,11 @@ h1.company-title {
 
 .data-cell {
   width: 20px;
+  font-size: 20px;
+}
+
+.arrow {
+  font-size: 120px;
+  margin-top: 60px;
+  text-shadow: -2px 0 #70b7f2, 0 2px #70b7f2, 2px 0 #70b7f2, 0 -2px #70b7f2;
 }
