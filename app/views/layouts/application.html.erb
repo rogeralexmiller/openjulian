@@ -27,36 +27,13 @@
     <div id="wrapper" class="container-fluid">
       <%= yield %>
     </div>
-  </body>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="logo-wrap">
-            <%= image_tag('bio-io.png', class:'img-responsive') %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="stat-footer">
-            <p>
-              <span class="text-uppercase center-justified">YOU HAVE BEEN COLLECTING FOR:</span> <span class="grey-text">8 months</span>
-            </p>
-            <p>
-              <span class="text-uppercase center-justified">YOU HAVE MADE:</span> <span class="grey-text">$1200</span>
-            </p>
-            <p>
-              <span class="text-uppercase center-justified">YOU HAVE DONATED:</span> <span class="grey-text"> 104 hours of data</span>
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="logo-wrap">
-            <%= image_tag('logo-button', class: 'img-responsive') %>
-          </div>
-        </div>
+    <footer class="footer">
+      <div class="container-fluid">
+        <h3 class="text-uppercase text-justify pull-right footer-questions">
+          If this data could support medical research, would you donate it? <br>
+          If this data could be sold for market research, would you sell it?
+        </h3>
       </div>
-    </div>
-  </footer>
-
+    </footer>
+  </body>
 </html>
