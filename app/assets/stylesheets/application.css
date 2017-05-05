@@ -27,7 +27,12 @@ html, body {
 
 body {
   height: 100% !important;
-  background: url("CroppedBackGround.png") no-repeat center center fixed;
+  background: url("CroppedBackGround.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   padding: 20px;
   margin-bottom: 100px
 }
