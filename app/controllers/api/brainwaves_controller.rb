@@ -4,6 +4,13 @@ class Api::BrainwavesController < ApplicationController
   # frequency of the signal.
   # 3. Send that frequency value to the application so it can be saved and
   # interpreted into a frequency wave.
+
+  # To get the frequency of a given amplitude value:
+  # 1. loop through data points. The time between each is 1/250 seconds since the sampling rate is 250 hertz
+  # 2. To calculate the frequency of that peak, store number of data points between each peak.
+  # 3. To get the frequency of a signal you have to first know what the peaks are.
+      # One option is to calculate how many different buckets the data falls into: 0-5 mvolts, 5-10 etc.
+      # then see how often a data point fallse into a bucket.
   def create
     # heart_rate = HeartRate.new(heart_rate: params["heart_rate"])
     if heart_rate.save
