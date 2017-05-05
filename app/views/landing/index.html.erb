@@ -2,7 +2,7 @@
   <%= javascript_include_tag "index.js" %>
 <% end %>
 
-<div class="row-fluid">
+<div class="row">
   <div class="col-sm-8">
     <div class="logo-wrap">
       <%= image_tag('bio-io.png', class:'img-responsive') %>
@@ -16,8 +16,8 @@
   </div>
 </div>
 
-<div class="row-fluid">
-  <div class="col col-sm-4">
+<div class="row">
+  <div class="col-sm-4">
     <h5 class="text-uppercase sub-header">Welcome:</h5>
     <p class="grey-text text-uppercase">
       touch your fingers to the sensor pads below and upload your biometric
@@ -25,7 +25,7 @@
     </p>
   </div>
 
-<div class="col col-sm-4">
+<div class="col-sm-4">
   <h5 class="text-uppercase sub-header">real-time feedback:</h4>
     <table class="table table-borderless">
       <tr>
@@ -55,7 +55,7 @@
         <td class='bio-icon'>
           <%= image_tag('temperature.png', class: 'img-responsive temperature-image') %>
         </td>
-        <td id="temp-readout data-cell grey-text">
+        <td id="temp-readout" class="data-cell grey-text">
           0
         </td>
         <td>
@@ -66,7 +66,7 @@
     </table>
   </div>
 
-  <div class="col col-sm-4">
+  <div class="col-sm-4">
     <div class="temp-container">
       <canvas id="temp-canvas" width=300 height=200></canvas>
     </div>
