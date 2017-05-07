@@ -5,7 +5,7 @@ class Api::BiometricsController < ApplicationController
     temp = Temperature.new(temperature: params['temperature'])
     gsr = SkinResponse.new(gsr: params['gsr'])
 
-    if gsr.save && temp.save && gsr.save
+    if gsr.save && temp.save && heart_rate.save
       render json: { status: 202, message: 'success' }
     else
       errors = gsr.errors.full_messages.concat(
