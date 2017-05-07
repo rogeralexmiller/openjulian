@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :temperatures, only: [:create, :index]
     resources :heart_rates, only: [:create, :index]
     resources :skin_responses, only: [:create, :index]
+    post "biometrics", to: "biometrics#create"
   end
 
   # Example of regular route:
