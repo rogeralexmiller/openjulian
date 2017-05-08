@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var testData = false;
+  var testing = true;
 
   var canvas = document.getElementById('temp-canvas');
 
@@ -94,12 +94,9 @@ $(document).ready(function () {
   }
 
   setInterval(function(){
-    var nextTemp = 0;
-    if (testData) {
-      // nextTemp = parseInt(Math.random()*100);
-      // processTransition(nextTemp, lastTemp, nextTemperatures, "#temp-readout");
-      // nextTemperatures.push(nextTemp);
-      // lastTemp = nextTemp;
+    if (testing) {
+      testtTemp = parseInt(Math.random()*100);
+      temperatures.push(testTemp);
     } else {
       $.ajax({
         url: 'api/temperatures',
