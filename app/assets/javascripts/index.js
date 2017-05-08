@@ -40,54 +40,20 @@ $(document).ready(function () {
     setInterval(function(){
       ctx.clearRect(0, 0, 300, 200);
 
-      var nextTemp;
-      var nextRate;
-      var nextGsr;
-
-      if (nextTemperatures.length > 0) {
-        nextTemp = nextTemperatures[0];
-        nextTemperatures = nextTemperatures.slice(1, nextTemperatures.length);
-      } else {
-        nextTemp = temperatures[0];
-      }
-
-      temperatures.unshift(nextTemp);
-      temperatures.pop();
-
-      if (nextRates.length > 0) {
-        nextRate = nextRates[0];
-        nextRates = nextRates.slice(1, nextRates.length);
-      } else {
-        nextRate = heartRates[0];
-      }
-
-      heartRates.unshift(nextRate);
-      heartRates.pop();
-
-      if (nextGsrs.length > 0) {
-        nextGsr = nextGsrs[0];
-        nextGsrs = nextGsrs.slice(1, nextGsrs.length);
-      } else {
-        nextGsr = gsrs[0];
-      }
-
-      gsrs.unshift(nextGsr);
-      gsrs.pop();
-
       for (var i = 0; i < 300; i++) {
         var tempValue = temperatures[i];
-        var rateValue = heartRates[i];
-        var gsrValue = gsrs[i];
+        // var rateValue = heartRates[i];
+        // var gsrValue = gsrs[i];
 
         ctx.fillStyle = '#f79420';
         ctx.globalAlpha = 1.0 - (i/300.0);
         ctx.fillRect(i+10, 200 - tempValue - 5, 2, 2);
 
-        ctx.fillStyle = '#e55036';
-        ctx.fillRect(i+10, 200 - rateValue - 5, 2, 2);
-
-        ctx.fillStyle = '#9ce0a6';
-        ctx.fillRect(i+10, 200 - gsrValue - 5, 2, 2);
+        // ctx.fillStyle = '#e55036';
+        // ctx.fillRect(i+10, 200 - rateValue - 5, 2, 2);
+        //
+        // ctx.fillStyle = '#9ce0a6';
+        // ctx.fillRect(i+10, 200 - gsrValue - 5, 2, 2);
 
       }
     }, 50);
