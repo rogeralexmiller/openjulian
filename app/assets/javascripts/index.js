@@ -16,6 +16,8 @@ $(document).ready(function () {
 
     ctx.beginPath();
 
+    ctx.lineWidth = 5;
+
     var temperatures = [];
     var heartRates = [];
     var gsrs = [];
