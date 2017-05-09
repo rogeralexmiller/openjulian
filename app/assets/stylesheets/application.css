@@ -58,8 +58,14 @@ img {
   height: 100px;
 }
 
+.footer-wrapper {
+  
+}
+
 .footer-questions {
-  line-height: 30px
+  width: 400px;
+  height: 60px;
+  display: inline-block;
 }
 
 td.bio-icon {
