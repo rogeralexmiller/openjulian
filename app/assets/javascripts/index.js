@@ -29,7 +29,7 @@ $(document).ready(function () {
     }
 
     setInterval(function(){
-      ctx.clearRect(0, 0, 300, 200);
+      ctx.clearRect(0, 0, 400, 200);
 
       var copyTemps = temperatures.slice();
       var copyRates = heartRates.slice();
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
         ctx.strokeStyle = '#f79420';
         ctx.globalAlpha = 1.0 - (m/50.0);
-        ctx.lineTo(m*6, 200 - tempValue);
+        ctx.lineTo(m*8, 200 - tempValue);
         ctx.stroke();
       }
 
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
         ctx.strokeStyle = '#e55036';
         ctx.globalAlpha = 1.0 - (j/50.0);
-        ctx.lineTo(j*6, 200 - rateValue);
+        ctx.lineTo(j*8, 200 - rateValue);
         ctx.stroke();
       }
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
 
         ctx.strokeStyle = '#9ce0a6';
         ctx.globalAlpha = 1.0 - (x/50.0);
-        ctx.lineTo(x*6, 200 - gsrValue);
+        ctx.lineTo(x*8, 200 - gsrValue);
         ctx.stroke();
 
       }
@@ -99,7 +99,7 @@ $(document).ready(function () {
         }
       });
     }
-  }, 100);
+  }, 60);
 
   setInterval(function(){
     if (testing) {
@@ -122,7 +122,7 @@ $(document).ready(function () {
         }
       });
     }
-  }, 100);
+  }, 60);
 
   setInterval(function(){
     if (testing) {
@@ -145,5 +145,5 @@ $(document).ready(function () {
         }
       });
     }
-  }, 100);
+  }, 60);
 });

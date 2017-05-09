@@ -59,12 +59,12 @@ img {
 }
 
 .footer-wrapper {
-  
+  padding-bottom: 20px;
 }
 
 .footer-questions {
-  width: 400px;
-  height: 60px;
+  max-width: 300px;
+  height: 80px;
   display: inline-block;
 }
 
@@ -134,12 +134,17 @@ td.bio-icon {
 
 .arrow {
   height: 300px;
-  margin: 20 0;
+  position: relative;
+  top: 10px;
 }
 
 @media (min-width: 768px) {
     .text-align-sm {
         text-align: left;
+    }
+
+    .footer-col-sm {
+      max-width:300px;
     }
 }
 
@@ -147,5 +152,9 @@ td.bio-icon {
 @media (min-width: 992px) {
     .text-align-md {
         text-align: right;
+    }
+
+    .footer-col-md {
+      max-width: 450px;
     }
 }
