@@ -3,12 +3,12 @@ $(document).ready(function () {
 
   var canvas = document.getElementById('temp-canvas');
 
-  // var testButton = $('#test-btn');
+  var testButton = $('#test-btn');
 
-  // testButton.click(function(e){
-  //   e.preventDefault();
-  //   testData = !testData;
-  // });
+  testButton.click(function(e){
+    e.preventDefault();
+    testing = !testing;
+  });
 
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
@@ -17,95 +17,130 @@ $(document).ready(function () {
     ctx.beginPath();
 
     var temperatures = [];
+    var heartRates = [];
+    var gsrs = [];
 
     for (var i = 0; i < 50; i++) {
-      temperatures[i]= i*2;
+      temperatures[i] = 0;
+      heartRates[i] = 0;
+      gsrs[i] = 0;
     }
 
-    // var heartRates = [];
-    // var nextRates = [];
-    // var lastRate = 30;
-    //
-    // var gsrs = [];
-    // var nextGsrs = [];
-    // var lastGsr = 10;
-
     setInterval(function(){
-      var copyTemps = temperatures.slice();
-
       ctx.clearRect(0, 0, 300, 200);
 
+      var copyTemps = temperatures.slice();
+      var copyRates = heartRates.slice();
+      var copyGsrs = gsrs.slice();
+
       ctx.beginPath();
+
       ctx.moveTo(0, 200 - copyTemps[0]);
 
       for (var i = 1; i < 50; i++) {
         var tempValue = copyTemps[i];
-        // var rateValue = heartRates[i];
-        // var gsrValue = gsrs[i];
 
         ctx.strokeStyle = '#f79420';
         ctx.globalAlpha = 1.0 - (i/50.0);
         ctx.lineTo(i*6, 200 - tempValue);
         ctx.stroke();
+      }
 
-        // ctx.fillStyle = '#e55036';
-        // ctx.fillRect(i+10, 200 - rateValue - 5, 2, 2);
-        //
-        // ctx.fillStyle = '#9ce0a6';
-        // ctx.fillRect(i+10, 200 - gsrValue - 5, 2, 2);
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.moveTo(0, 200 - copyRates[0]);
+
+      for (var j = 1; j < 50; j++) {
+        var rateValue = copyRates[j];
+
+        ctx.strokeStyle = '#e55036';
+        ctx.globalAlpha = 1.0 - (j/50.0);
+        ctx.lineTo(j*6, 200 - rateValue);
+        ctx.stroke();
+      }
+
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.moveTo(0, 200 - copyGsrs[0]);
+
+      for (var x = 1; x < 50; x++) {
+        var gsrValue = copyGsrs[x];
+
+        ctx.strokeStyle = '#9ce0a6';
+        ctx.globalAlpha = 1.0 - (x/50.0);
+        ctx.lineTo(x*6, 200 - gsrValue);
+        ctx.stroke();
 
       }
       ctx.closePath();
-    }, 100);
+    }, 200);
   }
 
   setInterval(function(){
     if (testing) {
       testTemp = parseInt(Math.random()*20) + 80;
       temperatures.unshift(testTemp);
-      if (temperatures.length > 100) {
+      $("#temp-readout").html(testTemp);
+      if (temperatures.length > 50) {
         temperatures.pop();
       }
-      $("#temp-readout").html(testTemp);
     } else {
       $.ajax({
         url: 'api/temperatures',
         success: function(data){
           nextTemp = parseFloat(data.data);
-
           temperatures.unshift(nextTemp);
-
-          if (temperatures.length > 100) {
+          $("#temp-readout").html(nextTemp);
+          if (temperatures.length > 50) {
             temperatures.pop();
           }
-
-          $("#temp-readout").html(nextTemp);
         }
       });
     }
-  }, 500);
+  }, 100);
 
-  // setInterval(function(){
-  //   $.ajax({
-  //     url: 'api/heart_rates',
-  //     success: function(data){
-  //       var nextRate =  parseFloat(data.data);
-  //
-  //       processTransition(nextRate, lastRate, nextRates, ".heart-rate-container");
-  //       lastRate = nextRate;
-  //     }
-  //   });
-  // }, 1000);
-  //
-  // setInterval(function(){
-  //   $.ajax({
-  //     url: 'api/skin_responses',
-  //     success: function(data){
-  //       var nextGsr = parseFloat(data.data);
-  //
-  //       processTransition(nextGsr, lastGsr, nextGsrs, ".skin-response-container");
-  //       lastGsr = nextGsr;
-  //     }
-  //   });
-  // }, 1000);
+  setInterval(function(){
+    if (testing) {
+      var testRate = parseInt(Math.random()*30) + 50;
+      heartRates.unshift(testRate);
+      $(".heart-rate-container").html(testRate);
+      if (heartRates.length > 50) {
+        heartRates.pop();
+      }
+    } else {
+      $.ajax({
+        url: 'api/heart_rates',
+        success: function(data){
+          var nextRate =  parseFloat(data.data);
+          $(".heart-rate-container").html(nextRate);
+          heartRates.unshift(nextRate);
+          if (heartRates.length > 50) {
+            heartRates.pop();
+          }
+        }
+      });
+    }
+  }, 100);
+
+  setInterval(function(){
+    if (testing) {
+      var testGsr = parseInt(Math.random()*20);
+      gsrs.unshift(testGsr);
+      $(".skin-response-container").html(testGsr);
+      if (gsrs.length > 50) {
+        gsrs.pop();
+      }
+    } else {
+      $.ajax({
+        url: 'api/skin_responses',
+        success: function(data){
+          var nextGsr = parseFloat(data.data);
+          gsrs.unshift(nextGsr);
+          if (gsrs.length > 50) {
+            gsrs.pop();
+          }
+        }
+      });
+    }
+  }, 100);
 });
