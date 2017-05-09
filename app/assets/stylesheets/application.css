@@ -127,9 +127,8 @@ td.bio-icon {
 }
 
 .arrow {
-  font-size: 120px;
-  margin: 50px 0;
-  text-shadow: -2px 0 #70b7f2, 0 2px #70b7f2, 2px 0 #70b7f2, 0 -2px #70b7f2;
+  height: 300px;
+  margin: 20 0;
 }
 
 @media (min-width: 768px) {

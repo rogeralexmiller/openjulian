@@ -37,12 +37,12 @@ $(document).ready(function () {
 
       ctx.moveTo(0, 200 - copyTemps[0]);
 
-      for (var i = 1; i < 50; i++) {
-        var tempValue = copyTemps[i];
+      for (var m = 1; m < 50; m++) {
+        var tempValue = copyTemps[m];
 
         ctx.strokeStyle = '#f79420';
-        ctx.globalAlpha = 1.0 - (i/50.0);
-        ctx.lineTo(i*6, 200 - tempValue);
+        ctx.globalAlpha = 1.0 - (m/50.0);
+        ctx.lineTo(m*6, 200 - tempValue);
         ctx.stroke();
       }
 
@@ -135,6 +135,7 @@ $(document).ready(function () {
         url: 'api/skin_responses',
         success: function(data){
           var nextGsr = parseFloat(data.data);
+          $(".skin-response-container").html(nextGsr);
           gsrs.unshift(nextGsr);
           if (gsrs.length > 50) {
             gsrs.pop();
