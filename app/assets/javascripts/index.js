@@ -22,25 +22,23 @@ $(document).ready(function () {
     var heartRates = [];
     var gsrs = [];
 
+    var nextTemp = 0;
+
     for (var i = 0; i < 50; i++) {
       temperatures[i] = 0;
       heartRates[i] = 0;
       gsrs[i] = 0;
     }
 
-    setInterval(function(){
+    var draw = function(){
       ctx.clearRect(0, 0, 400, 200);
-
-      var copyTemps = temperatures.slice();
-      var copyRates = heartRates.slice();
-      var copyGsrs = gsrs.slice();
 
       ctx.beginPath();
 
-      ctx.moveTo(0, 200 - copyTemps[0]);
+      ctx.moveTo(0, 200 - temperatures[0]);
 
       for (var m = 1; m < 50; m++) {
-        var tempValue = copyTemps[m];
+        var tempValue = temperatures[m];
 
         ctx.strokeStyle = '#f79420';
         ctx.globalAlpha = 1.0 - (m/50.0);
@@ -50,10 +48,10 @@ $(document).ready(function () {
 
       ctx.closePath();
       ctx.beginPath();
-      ctx.moveTo(0, 200 - copyRates[0]);
+      ctx.moveTo(0, 200 - heartRates[0]);
 
       for (var j = 1; j < 50; j++) {
-        var rateValue = copyRates[j];
+        var rateValue = heartRates[j];
 
         ctx.strokeStyle = '#e55036';
         ctx.globalAlpha = 1.0 - (j/50.0);
@@ -63,10 +61,10 @@ $(document).ready(function () {
 
       ctx.closePath();
       ctx.beginPath();
-      ctx.moveTo(0, 200 - copyGsrs[0]);
+      ctx.moveTo(0, 200 - gsrs[0]);
 
       for (var x = 1; x < 50; x++) {
-        var gsrValue = copyGsrs[x];
+        var gsrValue = gsrs[x];
 
         ctx.strokeStyle = '#9ce0a6';
         ctx.globalAlpha = 1.0 - (x/50.0);
@@ -75,75 +73,51 @@ $(document).ready(function () {
 
       }
       ctx.closePath();
-    }, 200);
-  }
+      window.requestAnimationFrame(draw);
+    };
 
-  setInterval(function(){
+  var getData = function(){
     if (testing) {
-      testTemp = parseInt(Math.random()*20) + 80;
+      var testTemp = parseInt(Math.random()*20) + 80;
       temperatures.unshift(testTemp);
       $("#temp-readout").html(testTemp);
-      if (temperatures.length > 50) {
-        temperatures.pop();
-      }
-    } else {
-      $.ajax({
-        url: 'api/temperatures',
-        success: function(data){
-          nextTemp = parseFloat(data.data);
-          temperatures.unshift(nextTemp);
-          $("#temp-readout").html(nextTemp);
-          if (temperatures.length > 50) {
-            temperatures.pop();
-          }
-        }
-      });
-    }
-  }, 60);
+      temperatures.pop();
 
-  setInterval(function(){
-    if (testing) {
       var testRate = parseInt(Math.random()*30) + 50;
       heartRates.unshift(testRate);
       $(".heart-rate-container").html(testRate);
-      if (heartRates.length > 50) {
-        heartRates.pop();
-      }
-    } else {
-      $.ajax({
-        url: 'api/heart_rates',
-        success: function(data){
-          var nextRate =  parseFloat(data.data);
-          $(".heart-rate-container").html(nextRate);
-          heartRates.unshift(nextRate);
-          if (heartRates.length > 50) {
-            heartRates.pop();
-          }
-        }
-      });
-    }
-  }, 60);
+      heartRates.pop();
 
-  setInterval(function(){
-    if (testing) {
       var testGsr = parseInt(Math.random()*20);
       gsrs.unshift(testGsr);
       $(".skin-response-container").html(testGsr);
-      if (gsrs.length > 50) {
-        gsrs.pop();
-      }
+      gsrs.pop();
+      window.requestAnimationFrame(getData);
     } else {
       $.ajax({
-        url: 'api/skin_responses',
+        url: 'api/biometrics',
         success: function(data){
-          var nextGsr = parseFloat(data.data);
+          nextTemp = parseFloat(data.data.temp);
+          temperatures.unshift(nextTemp);
+          $("#temp-readout").html(nextTemp);
+          temperatures.pop();
+
+          var nextRate =  parseFloat(data.data.heart_rate);
+          $(".heart-rate-container").html(nextRate);
+          heartRates.unshift(nextRate);
+          heartRates.pop();
+
+          var nextGsr = parseFloat(data.data.gsr);
           $(".skin-response-container").html(nextGsr);
           gsrs.unshift(nextGsr);
-          if (gsrs.length > 50) {
-            gsrs.pop();
-          }
+          gsrs.pop();
+          window.requestAnimationFrame(getData);
         }
       });
     }
-  }, 60);
+  };
+
+  window.requestAnimationFrame(draw);
+  window.requestAnimationFrame(getData);
+  }
 });

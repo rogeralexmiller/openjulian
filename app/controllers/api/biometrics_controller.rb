@@ -1,5 +1,14 @@
 class Api::BiometricsController < ApplicationController
 
+  def index
+    temp = Temperature.last
+    heart_rate = HeartRate.last
+    gsr = SkinResponse.last
+    render json: { status: 200, data: { temp: temp.temperature,
+                                        heart_rate: heart_rate.heart_rate,
+                                        gsr: gsr.gsr } }
+  end
+
   def create
     heart_rate = HeartRate.new(heart_rate: params["heart_rate"])
     temp = Temperature.new(temperature: params['temperature'])
